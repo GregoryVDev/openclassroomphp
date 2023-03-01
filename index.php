@@ -8,175 +8,70 @@
 
 <body>
     <?php
-    $isEnabled = true; // La condition d'accès
+             //             0                       1                    2       3
+      /* 0 */$gregory = ['Grégory Yéramian', 'gregory.gregory@exemple.com', 'Looool', 27];
+      /* 1 */$damien = ['Damien Petrovich', 'damien.petrovich@exemple.com', 'devine', 35];
+      /* 2 */$leon = ['Léon Brutelle', 'leon.brubru@exemple.com', 'WinKs', 29];
 
-    if ($isEnabled == true) {
-        echo "Vous êtes autorisé(e) à accéder au site ✅";
-    } else {
-        echo "Accès refusé ❌ ";
-    }
+        $users = [$gregory, $damien, $leon];
 
+        echo $users[2][0]; // "Léon Brutelle"
 
+        $lines = 3; // nombre d'utilisateurs dans le tableau
+        $counter = 0;
 
-    $isAllowedToEnter = "Oui";
+        while ($counter < $lines) 
+        {
+            echo $users[$counter][0] . ' ' . $users[$counter][1] . '<br />';
+            $counter++; // Ne surtout pas oublier la condition de sortie !
 
-    // SI on a l'autorisation d'entrer
-    if ($isAllowedToEnter == "Oui") {
-        // instructions à exécuter quand on est autorisé à entrer
-        // SINON SI on n'a pas l'autorisation d'entrer
-    } elseif ($isAllowedToEnter == "Non") {
-        // instructions à exécuter quand on n'est pas autorisé à entrer
-    }   // SINON (la variable ne contient ni Oui ni Non, on ne peut pas agir)
-    else {
-        echo "Euh, je ne comprends pas ton choix, tu peux me le rappeler s'il te plaît ?";
-    }
-
-
-
-    $isAllowedToEnter = true;
-
-    // Si pas autorisé
-    if (!$isAllowedToEnter) { // Le ! permet de dire qu'il est différent du "true" plus haut. On peut aussi mettre if($isAllowedToEnter == false)
-    }
+            // prénom et email
+            // prénom et email
+            // prénom et email 
+            // Plus rien vu qu'il y a que 3 lines et pas d'autres personnes dans le tableau
+        }
 
 
-    $isEnabled = true;
-    $isOwner = false;
-    $isAdmin = true;
+        $lines = 1;
 
-    // && = et / || = ou
+        while ($lines <= 100) 
+        {
+            echo 'Je ne dois pas regarder les mouches voler quand j\'apprends le PHP.<br />';
+            $lines++; // $lines = $lines + 1
 
-    if (($isEnabled && $isOwner) || $isAdmin) {
-        echo 'Accès à la recette validé ✅';
-    } else {
-        echo 'Accès à la recette interdit ! ❌';
-    }
-
+            // while on peut le remplacer par "tant que"
+            // Tant que $lines est inférieur ou égale à 100 alors on répète la phrase en rajoutant une ligne en plus à chaque fois grace à $lines ++ jusqu'à 100
+        }
 
 
-    $chickenRecipesEnabled = true;
+        /*
+        $lines = 1;
 
-    if ($chickenRecipesEnabled) {
-        echo '<h1>Liste des recettes à base de poulet</h1>';
-    }
+        while ($lines <= 100)
+        {
+            echo 'Ceci est la ligne n°' . $lines . '<br />';
+            $lines++;
+        }
 
-    // Ou alors un autre syntaxe alternative
-    /* <?php $chickenRecipesEnabled = true; ?>
+        <!--
 
-       <?php if ($chickenRecipesEnabled): ?> <!-- Ne pas oublier le ":" -->
-
-       <h1>Liste des recettes à base de poulet</h1>
-
-       <?php endif; ?><!-- Ni le ";" après le endif --> */
-
-
-       $grade = 16;
-
-    if ($grade == 0) 
-    {
-        echo "Tu es vraiment un gros nul !!!";
-    } 
-    elseif ($grade == 5) 
-    {
-        echo "Tu es très mauvais";
-    }
-     elseif ($grade == 7) 
-    {
-        echo "Tu es mauvais";
-    }
-     elseif ($grade == 10) 
-    {
-        echo "Tu as pile poil la moyenne, c'est un peu juste…";
-    }
-     elseif ($grade == 12) 
-    {
-        echo "Tu es assez bon";
-    } 
-    elseif ($grade == 16) 
-    {
-        echo "Tu te débrouilles très bien !";
-    }
-    elseif ($grade == 20) 
-    {
-        echo "Excellent travail, c'est parfait !";
-    }
-    else 
-    {
-        echo "Désolé, je n'ai pas de message à afficher pour cette note";
-    }
-
-    // On peut aussi l'écrire d'une autre façon qui revient au même
-
-    /* switch ($grade) // on indique sur quelle variable on travaille
-{ 
-    case 0: // dans le cas où $grade vaut 0
-        echo "Tu es vraiment un gros nul !!!";
-    break;
-    
-    case 5: // dans le cas où $grade vaut 5
-        echo "Tu es très mauvais";
-    break;
-    
-    case 7: // dans le cas où $grade vaut 7
-        echo "Tu es mauvais";
-    break;
-    
-    case 10: // etc. etc.
-        echo "Tu as pile poil la moyenne, c'est un peu juste…";
-    break;
-    
-    case 12:
-        echo "Tu es assez bon";
-    break;
-    
-    case 16:
-        echo "Tu te débrouilles très bien !";
-    break;
-    
-    case 20:
-        echo "Excellent travail, c'est parfait !";
-    break;
-    
-    default:
-        echo "Désolé, je n'ai pas de message à afficher pour cette note";
-} */
+        Ceci est la ligne n°1
+        Ceci est la ligne n°2
+        Ceci est la ligne n°3
+        ...
+        -->
+        */
 
 
-    $note = 12;
 
-    switch ($note)
-    {
-        case 0:
-            echo "Tu es merdique";
-        break;
 
-        case 5:
-            echo "Tu es naze";
-        break;
+        for ($lines = 0; $lines <= 2; $lines++)
+        {
+            echo $users[$lines][0] . ' ' . $users[$lines][1] . '<br />';
+        }
 
-        case 7:
-            echo "Tu n'as pas la moyenne, poursuit tes efforts";
-        break;
+        // Ca revient au même que le while plus haut
 
-        case 10:
-            echo "Tu as pile poil la moyenne, attention la prochaine fois";
-        break;
-
-        case 12:
-            echo "Tu as un peu plus que la moyenne, continues tes efforts";
-        break;
-
-        case 16:
-            echo "Bonne note, bon projet";
-        break;
-
-        case 20:
-            echo "Excellente note, travail bien fournis";
-        break;
-
-        default:
-            echo "Désolé, je ne reconnais pas la note, recommence stp";
-    }
 
 
 
