@@ -8,73 +8,101 @@
 
 <body>
     <?php
-             //             0                       1                    2       3
-      /* 0 */$gregory = ['Grégory Yéramian', 'gregory.gregory@exemple.com', 'Looool', 27];
-      /* 1 */$damien = ['Damien Petrovich', 'damien.petrovich@exemple.com', 'devine', 35];
-      /* 2 */$leon = ['Léon Brutelle', 'leon.brubru@exemple.com', 'WinKs', 29];
 
-        $users = [$gregory, $damien, $leon];
+    /* tableaux numérotés */
 
-        echo $users[2][0]; // "Léon Brutelle"
+    $recipes = ['Cassoulet', 'Couscous', 'Escalope Milanaise', 'Salade César',];
 
-        $lines = 3; // nombre d'utilisateurs dans le tableau
-        $counter = 0;
+    // On peut aussi faire en $recipes = array('Cassoulet', 'Couscous', 'Escalope Milanaise');
 
-        while ($counter < $lines) 
-        {
-            echo $users[$counter][0] . ' ' . $users[$counter][1] . '<br />';
-            $counter++; // Ne surtout pas oublier la condition de sortie !
+    $recipes[0] = 'Cassoulet';
+    $recipes[1] = 'Couscous';
+    $recipes[2] = 'Escalope Milanaise';
 
-            // prénom et email
-            // prénom et email
-            // prénom et email 
-            // Plus rien vu qu'il y a que 3 lines et pas d'autres personnes dans le tableau
+    echo $recipes[0], $recipes[1], $recipes[2];
+
+
+    /* Tableau associatif */
+
+        // Une bien meilleure façon de stocker une recette
+        
+        $recipe = 
+        [
+            'title' => 'Cassoulet',
+            'recipe' => 'Etape 1 : des flageolets, Etape 2 : des saucisses, Etape 3 : ...',
+            'author' => 'avo.yera@exemple.com',
+            'enabled' => true,
+        ];
+
+        echo $recipe['title'];
+
+
+        
+        $recipes = [
+            ['Cassoulet','[...]','mickael.andrieu@exemple.com',true,],
+            ['Couscous','[...]','mickael.andrieu@exemple.com',false,],
+        ];
+        
+        for ($lines = 0; $lines <= 1; $lines++) {
+            echo $recipes[$lines][0];
         }
 
 
-        $lines = 1;
 
-        while ($lines <= 100) 
+        // Déclaration du tableau des recettes
+        $recipes = 
+        [
+            ['Cassoulet', '[...]', 'mickael.andrieu@exemple.com', true,],
+            ['Couscous', '[...]', 'mickael.andrieu@exemple.com', false,],
+        ];
+
+        foreach ($recipes as $recipe) 
         {
-            echo 'Je ne dois pas regarder les mouches voler quand j\'apprends le PHP.<br />';
-            $lines++; // $lines = $lines + 1
-
-            // while on peut le remplacer par "tant que"
-            // Tant que $lines est inférieur ou égale à 100 alors on répète la phrase en rajoutant une ligne en plus à chaque fois grace à $lines ++ jusqu'à 100
+            echo $recipe[0]; // Affichera Cassoulet, puis Couscous
         }
 
 
-        /*
-        $lines = 1;
-
-        while ($lines <= 100)
+        $recipe = [
+            'title' => 'Salade Romaine',
+            'recipe' => 'Etape 1 : Lavez la salade ; Etape 2 : euh ...',
+            'author' => 'laurene.castor@exemple.com',
+        ];
+        
+        foreach($recipe as $property => $propertyValue)
         {
-            echo 'Ceci est la ligne n°' . $lines . '<br />';
-            $lines++;
+            echo '[' . $property . '] vaut ' . $propertyValue . PHP_EOL;
         }
 
-        <!--
-
-        Ceci est la ligne n°1
-        Ceci est la ligne n°2
-        Ceci est la ligne n°3
-        ...
-        -->
-        */
+        /* Il va être indiqué $ php exemple.php 
+        [title] vaut Salade Romaine
+        [recipe] vaut Etape 1 : Lavez la salade ; Etape 2 : euh ...
+        [author] vaut laurene.castor@exemple.com */
+        
 
 
 
 
-        for ($lines = 0; $lines <= 2; $lines++)
-        {
-            echo $users[$lines][0] . ' ' . $users[$lines][1] . '<br />';
-        }
 
-        // Ca revient au même que le while plus haut
+        $recipes = [
+            [
+                'title' => 'Cassoulet',
+                'recipe' => '',
+                'author' => 'mickael.andrieu@exemple.com',
+                'is_enabled' => true,
+            ],
+            [
+                'title' => 'Couscous',
+                'recipe' => '',
+                'author' => 'mickael.andrieu@exemple.com',
+                'is_enabled' => false,
+            ],
+        ];
+        
+        echo '<pre>';
+        print_r($recipes);
+        echo '</pre>';
 
-
-
-
+        // La balise <pre> nous permet d'avoir un affichage plus correct
 
     ?>
 </body>
