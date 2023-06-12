@@ -1,52 +1,69 @@
 <?php
-
-$recipes = [
-    [
-        'title' => 'Cassoulet',
-        'recipe' => 'Etape 1 : des flageolets !',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => true,
-    ],
-    [
-        'title' => 'Couscous',
-        'recipe' => 'Etape 1 : de la semoule',
-        'author' => 'mickael.andrieu@exemple.com',
-        'is_enabled' => false,
-    ],
-    [
-        'title' => 'Escalope milanaise',
-        'recipe' => 'Etape 1 : prenez une belle escalope',
-        'author' => 'mathieu.nebra@exemple.com',
-        'is_enabled' => true,
-    ],
-];
+    $film2 = [
+        'dure' => 121,
+    ];
+    
+    $films = [
+        [
+            'titre' => 'Le Noir',
+            'dure' => 121,
+            'annee' => 1995,
+            'adulte' => true,
+            'genre' => 'historique',
+        ],
+        [
+            'titre' => 'Les enfants juifs',
+            'dure' => 60,
+            'annee' => 1945,
+            'adulte' => false,
+            'genre' => 'humour',
+        ],
+        [
+            'titre' => 'Caca',
+            'dure' => 3,
+            'annee' => 2023,
+            'adulte' => true,
+            'genre' => 'porno',
+        ],
+        [
+            'titre' => 'Je suis amoureux de ma belle mère',
+            'dure' => 80,
+            'annee' => 2013,
+            'adulte' => true,
+            'genre' => 'amour',
+        ],
+        [
+            'titre' => 'La Poule',
+            'dure' => 1,
+            'annee' => 2022,
+            'adulte' => true,
+            'genre' => 'porno',
+        ],
+    ];
 ?>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Affichage des recettes</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-    >
-</head>
-<body>
+
+    <head>
+        <title>Tableau test</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
     <div class="container">
-        <h1>Affichage des recettes</h1>
-        <!-- Boucle sur les recettes -->
-        <?php foreach($recipes as $recipe) : ?>
-            <!-- si la clé existe et a pour valeur "vrai", on affiche -->
-            <?php if (array_key_exists('is_enabled', $recipe) && $recipe['is_enabled'] == true): ?>
+        <h1>Affichage de film de morveu</h1>
+        <?php foreach($films as $enfant) : ?>
+            <?php if (array_key_exists('adulte', $enfant) && $enfant['adulte'] == false): ?>
 
                 <article>
-                    <h3><?php echo $recipe['title']; ?></h3>
-                    <div><?php echo $recipe['recipe']; ?></div>
-                    <i><?php echo $recipe['author']; ?></i>
+                    <h3><?php echo $enfant['titre']; ?></h3>
+                    <div><?php echo $enfant['dure']; ?></div>
+                    <i><?php echo $enfant['genre']; ?></i>
                 </article>
 
             <?php endif; ?>
         <?php endforeach ?>
-    </div>   
-    
-</body>
+    </div>
+    </body>
 </html>
